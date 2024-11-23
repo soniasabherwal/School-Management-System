@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <h1>School Management System</h1>
+        <div>
+            <button onclick="fetchData('students')">View Students</button>
+            <button onclick="fetchData('faculty')">View Faculty</button>
+            <button onclick="fetchData('exams')">View Exams</button>
+            <button onclick="fetchData('exam_results')">View Exam Results</button>
+            <button onclick="fetchData('classrooms')">View Classrooms</button>
+        </div>
+        <div id="data"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
