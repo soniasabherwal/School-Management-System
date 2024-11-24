@@ -100,7 +100,7 @@ classrooms = [
 # Routes
 @app.route('/')
 def home():
-    return "Welcome to the Revised School Management System!"
+    return "Welcome to the School Management System!"
 
 @app.route('/students', methods=['GET'])
 def get_students():
