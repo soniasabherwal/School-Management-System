@@ -1,34 +1,107 @@
-from flask import Flask, jsonify, request
+
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-# Sample data
+# Sample Data
 students = [
-    {"id": 1, "name": "Alice", "classroom": "10A"},
-    {"id": 2, "name": "Bob", "classroom": "10B"}
+    {
+        "student_id": 1,
+        "created_at": "2024-11-01",
+        "first_name": "Alice",
+        "email": "alice@example.com",
+        "phone": "123-456-7890",
+        "start_date": "2024-08-15",
+        "degree": "BSc Computer Science",
+        "dob": "2000-05-10"
+    },
+    {
+        "student_id": 2,
+        "created_at": "2024-11-02",
+        "first_name": "Bob",
+        "email": "bob@example.com",
+        "phone": "987-654-3210",
+        "start_date": "2023-08-15",
+        "degree": "BA Literature",
+        "dob": "1999-03-20"
+    }
 ]
 
 faculty = [
-    {"id": 1, "name": "Mr. Smith", "subject": "Mathematics"},
-    {"id": 2, "name": "Ms. Johnson", "subject": "English"}
+    {
+        "faculty_id": 1,
+        "first_name": "Dr. Smith",
+        "last_name": "Johnson",
+        "department": "Computer Science",
+        "email": "smith.johnson@example.com",
+        "office_phone": "555-123-4567",
+        "dob": "1980-01-15",
+        "certification": "PhD Computer Science"
+    },
+    {
+        "faculty_id": 2,
+        "first_name": "Ms. Laura",
+        "last_name": "White",
+        "department": "Literature",
+        "email": "laura.white@example.com",
+        "office_phone": "555-987-6543",
+        "dob": "1985-06-25",
+        "certification": "MA Literature"
+    }
 ]
 
 exams = [
-    {"id": 1, "subject": "Mathematics", "date": "2024-12-10"},
-    {"id": 2, "subject": "English", "date": "2024-12-12"}
+    {
+        "exam_id": 1,
+        "created_at": "2024-11-05",
+        "exam_name": "Midterm Mathematics",
+        "exam_date": "2024-12-01"
+    },
+    {
+        "exam_id": 2,
+        "created_at": "2024-11-06",
+        "exam_name": "Final Literature",
+        "exam_date": "2024-12-15"
+    }
 ]
 
 exam_results = [
-    {"student_id": 1, "exam_id": 1, "score": 95},
-    {"student_id": 2, "exam_id": 2, "score": 88}
+    {
+        "created_at": "2024-12-01",
+        "points_poss": 100,
+        "points_earned": 90,
+        "student_id": 1,
+        "exam_id": 1
+    },
+    {
+        "created_at": "2024-12-15",
+        "points_poss": 100,
+        "points_earned": 85,
+        "student_id": 2,
+        "exam_id": 2
+    }
 ]
 
 classrooms = [
-    {"id": "10A", "students": 30},
-    {"id": "10B", "students": 25}
+    {
+        "class_id": 1,
+        "room_num": "A101",
+        "faculty_id": 1,
+        "course_id": "CS101"
+    },
+    {
+        "class_id": 2,
+        "room_num": "B202",
+        "faculty_id": 2,
+        "course_id": "LIT201"
+    }
 ]
 
 # Routes
+@app.route('/')
+def home():
+    return "Welcome to the Revised School Management System!"
+
 @app.route('/students', methods=['GET'])
 def get_students():
     return jsonify(students)
